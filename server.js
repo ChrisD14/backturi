@@ -6,15 +6,17 @@ const app = express();
 const PORT = process.env.PORT || 3000; // Puerto del servidor
 
 // Configuración de CORS
-   const corsOptions = {
-       origin: 'https://turismopis.netlify.app/', // Reemplaza con tu dominio real de Netlify
-       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-       credentials: true, // Si necesitas enviar cookies o encabezados de autorización
-       optionsSuccessStatus: 204 // Para algunas solicitudes preflight
-   };
+        const corsOptions = {
+            origin: 'https://turismopis.netlify.app', // Asegúrate de que este valor coincida con el origen de la solicitud
+            methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+            credentials: true,
+            optionsSuccessStatus: 204
+        };
+
+        app.use(cors(corsOptions));
+        
 
 // Middleware
-app.use(cors(corsOptions)); // Permite peticiones desde cualquier origen (para desarrollo)
 app.use(express.json()); // Permite que Express parsee JSON en el cuerpo de las peticiones
 
 // Conexión a MongoDB Atlas
