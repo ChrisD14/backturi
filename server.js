@@ -61,7 +61,7 @@ app.post('/', async (req, res) => {
 });
 
 // Ruta para obtener todas las encuestas
-app.get('/api/surveys', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
         const surveys = await Survey.find();
         res.status(200).json(surveys);
