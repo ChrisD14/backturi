@@ -49,7 +49,7 @@ const Survey = mongoose.model('Survey', surveySchema);
 // Rutas de la API
 
 // Ruta para guardar una nueva encuesta
-app.post('/', async (req, res) => {
+app.post('/api/surveys', async (req, res) => {
     try {
         const newSurvey = new Survey(req.body);
         await newSurvey.save();
@@ -69,6 +69,7 @@ app.get('/api/surveys', async (req, res) => {
         console.error('Error al obtener las encuestas:', error);
         res.status(500).json({ message: 'Error interno del servidor al obtener las encuestas', error: error.message });
     }
+    res.json([{ id: 1, name: 'Encuesta 1' }, { id: 2, name: 'Encuesta 2' }]);
 });
 
 // Iniciar el servidor
