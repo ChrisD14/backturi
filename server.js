@@ -2,12 +2,19 @@ require('dotenv').config(); // Carga las variables de entorno del archivo .env
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
 const app = express();
 const PORT = process.env.PORT || 3000; // Puerto del servidor
 
+// Configuración de CORS
+   const corsOptions = {
+       origin: 'https://turismopis.netlify.app/', // Reemplaza con tu dominio real de Netlify
+       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+       credentials: true, // Si necesitas enviar cookies o encabezados de autorización
+       optionsSuccessStatus: 204 // Para algunas solicitudes preflight
+   };
+
 // Middleware
-app.use(cors()); // Permite peticiones desde cualquier origen (para desarrollo)
+app.use(cors(corsOptions)); // Permite peticiones desde cualquier origen (para desarrollo)
 app.use(express.json()); // Permite que Express parsee JSON en el cuerpo de las peticiones
 
 // Conexión a MongoDB Atlas
