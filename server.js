@@ -49,7 +49,7 @@ const Survey = mongoose.model('Survey', surveySchema);
 // Rutas de la API
 
 app.get('/', (req, res) => {
-    res.json({ message: 'Bienvenido a la API' });
+    res.json([{ id: 1, name: 'Encuesta 1' }, { id: 2, name: 'Encuesta 2' }]);
 });
 
 // Ruta para guardar una nueva encuesta
