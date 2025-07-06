@@ -48,10 +48,6 @@ const Survey = mongoose.model('Survey', surveySchema);
 
 // Rutas de la API
 
-app.get('/', (req, res) => {
-    res.json([{ id: 1, name: 'Encuesta 1' }, { id: 2, name: 'Encuesta 2' }]);
-});
-
 // Ruta para guardar una nueva encuesta
 app.post('/api/surveys', async (req, res) => {
     try {
